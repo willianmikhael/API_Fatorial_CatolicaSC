@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<h1>Fatorial Calculator</h1>
+
+<form method="post">
+    <label for="numfatorial">Enter a number:</label>
+    <input type="number" id="numfatorial" name="numfatorial" required>
+    <button type="submit">Calculate</button>
+</form>
+
+<p>The factorial of <span th:text="${numfatorial}"></span> is <span th:text="${fatorialResult}"></span></p>
+<p>The Superfactorial of <span th:text="${numfatorial}"></span> is <span th:text="${superFatorialResult}"></span></p>
+
+
+</body>
+</html>

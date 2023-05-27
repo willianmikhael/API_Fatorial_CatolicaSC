@@ -7,8 +7,8 @@ import reactor.core.publisher.Mono;
 @Component
 public class SuperFatorialCalculator {
 
-    private final ReactiveRedisTemplate<String, String> redisTemplate;
-    private final FatorialCalculator fatorialCalculator;
+    private static ReactiveRedisTemplate<String, String> redisTemplate;
+    private static FatorialCalculator fatorialCalculator;
 
     public SuperFatorialCalculator(ReactiveRedisTemplate<String, String> redisTemplate,
                                    FatorialCalculator fatorialCalculator) {
@@ -16,7 +16,7 @@ public class SuperFatorialCalculator {
         this.fatorialCalculator = fatorialCalculator;
     }
 
-    public Mono<Integer> calcularSuperFatorial(int numero) {
+    public static Mono<Integer> calcularSuperFatorial(int numero) {
         if (numero < 0) {
             return Mono.just(-1);
         } else if (numero == 0 || numero == 1) {
